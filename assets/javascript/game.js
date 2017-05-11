@@ -6,13 +6,15 @@ var losses = 0;
 var guessesLeft = 9;
 var guesses =9;
 var guessedLetters = [];
-var lettertoGuess = null;
+
 
 document.onkeyup = function(event) {
 
   var userGuess = event.key;
 
   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+  guessedLetters.push(userGuess)
 
   var reset = function () {
     totalGuesses = 9;
@@ -37,8 +39,8 @@ document.onkeyup = function(event) {
   var html = "<p>Guess what letter I'm thinking of</p>" +
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>"+
-          "<p>Guesses Left:" + guessesLeft +"</p>"+
-          "<p>Your Guesses So Far:" + guessedLetters +"</p>";
+          "<p>Guesses Left: " + guessesLeft +"</p>"+
+          "<p>Your Guesses So Far: " + guessedLetters + "</p>";
 
     document.querySelector("#game").innerHTML = html;
 
